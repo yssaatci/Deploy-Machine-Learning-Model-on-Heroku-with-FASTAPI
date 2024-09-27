@@ -2,11 +2,11 @@ import logging
 import pandas as pd
 from joblib import load
 from fastapi import FastAPI
-from project_3_deploy_model_with_fastapi.src.dto.person import Person
-from project_3_deploy_model_with_fastapi.src.ml import model
-from project_3_deploy_model_with_fastapi.src.ml.train_model import CAT_FEATURES
-from project_3_deploy_model_with_fastapi.src.ml.model import MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
-from project_3_deploy_model_with_fastapi.src.ml.data import process_data
+from src.dto.person import Person
+from src.ml import model
+from src.ml.train_model import CAT_FEATURES
+from src.ml.model import MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
+from src.ml.data import process_data
 
 logging.basicConfig(level=logging.DEBUG)
 app = FastAPI()
