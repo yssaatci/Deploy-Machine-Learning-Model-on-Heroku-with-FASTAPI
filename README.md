@@ -2,7 +2,7 @@
 
 # My github project
 
-If not viewing this on github, find my project here: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/tree/main/project_3_deploy_model_with_fastapi
+If not viewing this on github, find my project here: https://github.com/yssaatci/project_3_deploy_model_with_fastapi
 
 # Starter code
 
