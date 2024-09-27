@@ -1,69 +1,36 @@
-## My solution to project 3 `Deploying a ML Model to Cloud Application Platform with FastAPI`
-
-# My github project
-
-If not viewing this on github, find my project here: [https://github.com/yssaatci/Deploy-Machine-Learning-Model-on-Heroku-with-FASTAPI](https://github.com/yssaatci/Deploy-Machine-Learning-Model-on-Heroku-with-FASTAPI)
-
-# Starter code
-
-Udacity provides starter code for this project, which can be found here: https://github.com/udacity/nd0821-c3-starter-code
-
-As mentioned in the instructions of this course, starter code is downloaded, this new project folder is created and setup with git.
-
-Therefore, my solution code is based on this starter code, all credits to the authors of the course.
-
-License for this project: see Udacity License here: https://github.com/udacity/nd0821-c3-starter-code/blob/master/LICENSE.txt
-
-# Setup
-
-- `conda create -n project3 "python=3.8" --file project_3_deploy_model_with_fastapi/requirements.txt -c conda-forge` in root of repository
-
-- `conda activate project3`
-
-# Usage
-
-- run the tests with `python -m pytest project_3_deploy_model_with_fastapi -vv` (add `--log-cli-level=DEBUG` for logging)
-
-- run `python -m project_3_deploy_model_with_fastapi.src.check.sanitycheck` and answer path question with `project_3_deploy_model_with_fastapi/tests/test_main.py` as test file for a check of functionality to meet course specifications
-
-- run `python -m project_3_deploy_model_with_fastapi.src.ml.train_model`
-
-  - to re-train and save the model (already trained model is provided here: `project_3_deploy_model_with_fastapi/src/model/lr_model.joblib` with `encoder.joblib` and `lb.joblib`)
-
-  - to re-calculate metrics in `project_3_deploy_model_with_fastapi/src/model/slice_output.txt`
-
-- run `uvicorn project_3_deploy_model_with_fastapi.src.main:app` to start REST-Endpoints locally on `http://127.0.0.1:8000`
-
-  - see docs here: `http://127.0.0.1:8000/docs`
-
-- to request app deployed on render or similar service
-
-  - configure `RENDER_APP_URL` in `project_3_deploy_model_with_fastapi/src/check/request_render.py`
-
-  - run `python -m project_3_deploy_model_with_fastapi.src.check.request_render`
-
-- run `flake8 project_3_deploy_model_with_fastapi/` to lint locally
-
-# Deploy on Render.com
-
-- deploy repository as `Web Service` with specific configuration:
-
-  - Repository: `https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions`
-
-  - Branch: `main`
-
-  - Build Command: `pip install -r project_3_deploy_model_with_fastapi/requirements.txt`
-
-  - Start Command: `uvicorn project_3_deploy_model_with_fastapi.src.main:app --host 0.0.0.0 --port 10000`
-
-  - Auto-Deploy: `Yes`
-
-# Model
-
-See model card for more details: https://github.com/TobiasSunderdiek/my-udacity-machine-learning-devops-engineer-solutions/blob/main/project_3_deploy_model_with_fastapi/model_card.md
-
-# GithubActions
-
-- only if changes are made within this project 3, github actions are called
-
-    - with one exception: if a tag is pushed, github actions are also called
+Environment Set up
+Download and install conda if you don’t have it already.
+Use the supplied requirements file to create a new environment, or
+conda create -n [envname] "python=3.8" scikit-learn pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
+Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
+Repositories
+Create a directory for the project and initialize git.
+As you work on the code, continually commit changes. Trained models you want to use in production must be committed to GitHub.
+Connect your local git repo to GitHub.
+Setup GitHub Actions on your repo. You can use one of the pre-made GitHub Actions if at a minimum it runs pytest and flake8 on push and requires both to pass without error.
+Make sure you set up the GitHub Action to have the same version of Python as you used in development.
+Data
+Download census.csv and commit it to dvc.
+This data is messy, try to open it in pandas and see what you get.
+To clean it, use your favorite text editor to remove all spaces.
+Model
+Using the starter code, write a machine learning model that trains on the clean data and saves the model. Complete any function that has been started.
+Write unit tests for at least 3 functions in the model code.
+Write a function that outputs the performance of the model on slices of the data.
+Suggestion: for simplicity, the function can just output the performance on slices of just the categorical features.
+Write a model card using the provided template.
+API Creation
+Create a RESTful API using FastAPI this must implement:
+GET on the root giving a welcome message.
+POST that does model inference.
+Type hinting must be used.
+Use a Pydantic model to ingest the body from POST. This model should contain an example.
+Hint: the data has names with hyphens and Python does not allow those as variable names. Do not modify the column names in the csv and instead use the functionality of FastAPI/Pydantic/etc to deal with this.
+Write 3 unit tests to test the API (one for the GET and two for POST, one that tests each prediction).
+API Deployment
+Create a free Heroku account (for the next steps you can either use the web GUI or download the Heroku CLI).
+Create a new app and have it deployed from your GitHub repository.
+Enable automatic deployments that only deploy if your continuous integration passes.
+Hint: think about how paths will differ in your local environment vs. on Heroku.
+Hint: development in Python is fast! But how fast you can iterate slows down if you rely on your CI/CD to fail before fixing an issue. I like to run flake8 locally before I commit changes.
+Write a script that uses the requests module to do one POST on your live API.
