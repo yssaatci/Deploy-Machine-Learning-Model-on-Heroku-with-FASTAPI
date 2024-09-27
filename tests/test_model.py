@@ -3,13 +3,13 @@ import pandas as pd
 from numpy import ndarray
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from project_3_deploy_model_with_fastapi.src.ml.model import train_model, \
+from src.ml.model import train_model, \
     inference, save_model, _compute_model_metrics, MODEL_FILENAME, ENCODER_FILENAME, LB_FILENAME
-from project_3_deploy_model_with_fastapi.src.ml.train_model import DATA_FILE, CAT_FEATURES
-from project_3_deploy_model_with_fastapi.src.ml.data import process_data
+from src.ml.train_model import DATA_FILE, CAT_FEATURES
+from src.ml.data import process_data
 
 
-@patch('project_3_deploy_model_with_fastapi.src.ml.model.LogisticRegression')
+@patch('src.ml.model.LogisticRegression')
 def test_train_model(MockLogisticRegression):
     lr_model_mock = MockLogisticRegression.return_value
     X_mock = Mock()
@@ -54,7 +54,7 @@ def test_inference_return_type():
     assert isinstance(pred, ndarray)
 
 
-@patch('project_3_deploy_model_with_fastapi.src.ml.model.dump')
+@patch('src.ml.model.dump')
 def test_save_model(dump_func_mock):
     lr_model_mock = Mock()
     encoder_mock = Mock()
