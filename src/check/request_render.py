@@ -2,7 +2,7 @@ import requests
 import logging
 
 
-RENDER_APP_URL = 'https://predict-salary-fhxt.onrender.com'
+RENDER_APP_URL = 'https://project-3-deploy-model-with-fastapi.onrender.com/'
 
 logging.basicConfig(level=logging.DEBUG)
 
