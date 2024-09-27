@@ -2,7 +2,7 @@
 
 # My github project
 
-If not viewing this on github, find my project here: https://github.com/yssaatci/project_3_deploy_model_with_fastapi
+If not viewing this on github, find my project here: [https://github.com/yssaatci/Deploy-Machine-Learning-Model-on-Heroku-with-FASTAPI](https://github.com/yssaatci/Deploy-Machine-Learning-Model-on-Heroku-with-FASTAPI)
 
 # Starter code
 
