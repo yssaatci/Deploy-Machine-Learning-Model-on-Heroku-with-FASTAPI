@@ -19,7 +19,7 @@ CAT_FEATURES = [
     "native-country",
 ]
 
-DATA_FILE = 'project_3_deploy_model_with_fastapi/src/data/census.csv'
+DATA_FILE = 'src/data/census.csv'
 
 
 # Train and save a model.
