@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from project_3_deploy_model_with_fastapi.src.main import app
+from src.main import app
 
 
 client = TestClient(app)
