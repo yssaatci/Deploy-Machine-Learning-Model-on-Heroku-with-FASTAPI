@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]  # "master" in forked repo
     paths:
-      - '**'
       - '!.github/workflows/**'
       - '!LICENSE'
       - '!README.md'
