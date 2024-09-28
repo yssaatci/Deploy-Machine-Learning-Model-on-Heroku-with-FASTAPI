@@ -2,7 +2,7 @@ import requests
 import logging
 
 
-RENDER_APP_URL = 'https://deploy-machine-learning-model-on-heroku.onrender.com/'
+RENDER_APP_URL = 'https://deploy-machine-learning-model-on-heroku.onrender.com'
 
 logging.basicConfig(level=logging.DEBUG)
 
