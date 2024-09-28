@@ -6,7 +6,6 @@ name: Python application for project 3
 on:
   push:
     paths:
-      - '**'
       - '!.github/workflows/**'
       - '!LICENSE'
       - '!README.md'
