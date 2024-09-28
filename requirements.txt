@@ -5,6 +5,6 @@ pytest
 flake8
 requests
 fastapi==0.95.0
-uvicorn
-httpx
-importlib-metadata
+uvicorn==0.21.1
+httpx==0.23.3
+importlib-metadata==4.2.0
