@@ -4,7 +4,7 @@ scikit-learn
 pytest
 flake8
 requests
-fastap=i0.95.0
+fastap==i0.95.0
 uvicorn
 httpx
 importlib-metadata
